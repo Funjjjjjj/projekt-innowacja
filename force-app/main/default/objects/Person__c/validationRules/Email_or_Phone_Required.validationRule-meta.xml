@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Email_or_Phone_Required</fullName>
+    <active>true</active>
+    <errorConditionFormula>ISBLANK( Email__c ) &amp;&amp; ISBLANK(Phone__c)</errorConditionFormula>
+    <errorMessage>Please add at least one form of contact: Email or Phone number</errorMessage>
+</ValidationRule>
