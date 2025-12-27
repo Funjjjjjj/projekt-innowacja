@@ -3,7 +3,7 @@
     <fullName>Opening_Hours__c</fullName>
     <externalId>false</externalId>
     <label>Opening Hours</label>
-    <length>10</length>
+    <length>11</length>
     <required>false</required>
     <trackTrending>false</trackTrending>
     <type>Text</type>
