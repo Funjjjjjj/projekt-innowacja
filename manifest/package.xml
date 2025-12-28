@@ -22,5 +22,9 @@
         <members>Admin</members>
         <name>Profile</name>
     </types>
+    <types>
+        <members>*</members>
+        <name>CustomTabs</name>
+    </types>
     <version>56.0</version>
 </Package>
