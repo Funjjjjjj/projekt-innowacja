@@ -11,5 +11,6 @@
     <label>WEEIA HOSPITAL APP</label>
     <navType>Standard</navType>
     <tabs>standard-Account</tabs>
+    <tabs>Medical_Insurence__c</tabs>
     <uiType>Lightning</uiType>
 </CustomApplication>
