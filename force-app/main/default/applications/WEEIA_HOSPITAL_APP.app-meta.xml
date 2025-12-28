@@ -12,5 +12,4 @@
     <navType>Standard</navType>
     <tabs>standard-Account</tabs>
     <uiType>Lightning</uiType>
-    <utilityBar>Main_Page</utilityBar>
 </CustomApplication>
