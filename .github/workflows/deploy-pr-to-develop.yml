@@ -1,7 +1,8 @@
 name: Salesforce Deploy after Merge
 
 on:
-  push:
+  pull-request:
+    types: [opened, synchronize]
     branches:
       - development
     paths:
