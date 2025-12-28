@@ -12,5 +12,5 @@
     <navType>Standard</navType>
     <tabs>standard-Account</tabs>
     <uiType>Lightning</uiType>
-    <utilityBar>WEEIA_HOSPITAL_APP_UtilityBar</utilityBar>
+    <utilityBar>Main_Page</utilityBar>
 </CustomApplication>
