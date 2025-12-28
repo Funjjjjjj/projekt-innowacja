@@ -910,6 +910,10 @@
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>
+        <name>WEEIA_HOSPITAL_APP</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>true</enabled>
         <name>DeleteActivatedContract</name>
     </userPermissions>
     <userPermissions>
