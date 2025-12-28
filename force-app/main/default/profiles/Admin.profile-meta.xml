@@ -749,6 +749,7 @@
     <userPermissions>
         <enabled>true</enabled>
         <name>AssignUserToSkill</name>
+        <readable>true</readable>
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>
