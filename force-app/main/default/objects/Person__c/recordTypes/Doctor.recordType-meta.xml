@@ -6,7 +6,7 @@
     <picklistValues>
         <picklist>Specialization__c</picklist>
         <values>
-            <fullName>Allergist</fullName>
+            <fullName>Anesthesiologist</fullName>
             <default>false</default>
         </values>
         <values>
@@ -14,11 +14,63 @@
             <default>false</default>
         </values>
         <values>
-            <fullName>Internist</fullName>
+            <fullName>Dentist</fullName>
             <default>false</default>
         </values>
         <values>
-            <fullName>Laryngologist</fullName>
+            <fullName>Dermatologist</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ENT Specialist</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Endocrinologist</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>General Practitioner</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Gynecologist</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Neurologist</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Oncologist</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Ophthalmologist</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Orthopedist</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pediatrician</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Psychiatrist</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Radiologist</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Surgeon</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Urologist</fullName>
             <default>false</default>
         </values>
     </picklistValues>
