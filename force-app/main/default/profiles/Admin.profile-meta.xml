@@ -1286,9 +1286,9 @@
         <object>Product2</object>
         <viewAllRecords>true</viewAllRecords>
     </objectPermissions>
-       <picklistValues>
+    <picklistValues>
         <picklist>Person__c.Specialization__c</picklist>
-        <values>
+        <recordType>Person__c.Doctor</recordType> <values>
             <fullName>Cardiology</fullName>
             <default>false</default>
         </values>
@@ -1300,7 +1300,7 @@
             <fullName>Pediatrics</fullName>
             <default>false</default>
         </values>
-        </picklistValues>
+    </picklistValues>
     <recordTypeVisibilities>
         <default>false</default>
         <recordType>Medical_Appointment__c.On_Site</recordType>
