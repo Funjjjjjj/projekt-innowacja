@@ -11,9 +11,9 @@
         <valueSetDefinition>
             <sorted>false</sorted>
             <value>
-                <fullName>General Practitioner</fullName>
+                <fullName>Internist</fullName>
                 <default>false</default>
-                <label>General Practitioner</label>
+                <label>Internist</label>
             </value>
             <value>
                 <fullName>Cardiologist</fullName>
@@ -21,79 +21,14 @@
                 <label>Cardiologist</label>
             </value>
             <value>
-                <fullName>Dermatologist</fullName>
+                <fullName>Allergist</fullName>
                 <default>false</default>
-                <label>Dermatologist</label>
+                <label>Allergist</label>
             </value>
             <value>
-                <fullName>Pediatrician</fullName>
+                <fullName>Laryngologist</fullName>
                 <default>false</default>
-                <label>Pediatrician</label>
-            </value>
-            <value>
-                <fullName>Neurologist</fullName>
-                <default>false</default>
-                <label>Neurologist</label>
-            </value>
-            <value>
-                <fullName>Orthopedist</fullName>
-                <default>false</default>
-                <label>Orthopedist</label>
-            </value>
-            <value>
-                <fullName>Psychiatrist</fullName>
-                <default>false</default>
-                <label>Psychiatrist</label>
-            </value>
-            <value>
-                <fullName>Gynecologist</fullName>
-                <default>false</default>
-                <label>Gynecologist</label>
-            </value>
-            <value>
-                <fullName>Ophthalmologist</fullName>
-                <default>false</default>
-                <label>Ophthalmologist</label>
-            </value>
-            <value>
-                <fullName>Dentist</fullName>
-                <default>false</default>
-                <label>Dentist</label>
-            </value>
-            <value>
-                <fullName>ENT Specialist</fullName>
-                <default>false</default>
-                <label>ENT Specialist</label>
-            </value>
-            <value>
-                <fullName>Surgeon</fullName>
-                <default>false</default>
-                <label>Surgeon</label>
-            </value>
-            <value>
-                <fullName>Endocrinologist</fullName>
-                <default>false</default>
-                <label>Endocrinologist</label>
-            </value>
-            <value>
-                <fullName>Urologist</fullName>
-                <default>false</default>
-                <label>Urologist</label>
-            </value>
-            <value>
-                <fullName>Oncologist</fullName>
-                <default>false</default>
-                <label>Oncologist</label>
-            </value>
-            <value>
-                <fullName>Radiologist</fullName>
-                <default>false</default>
-                <label>Radiologist</label>
-            </value>
-            <value>
-                <fullName>Anesthesiologist</fullName>
-                <default>false</default>
-                <label>Anesthesiologist</label>
+                <label>Laryngologist</label>
             </value>
         </valueSetDefinition>
     </valueSet>
