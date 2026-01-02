@@ -749,11 +749,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Prescription__c.Patient__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>Prescription__c.Status__c</field>
         <readable>false</readable>
     </fieldPermissions>
