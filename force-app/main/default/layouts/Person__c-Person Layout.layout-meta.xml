@@ -92,10 +92,6 @@
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>
-        <relatedList>Prescription__c.Doctor__c</relatedList>
-    </relatedLists>
-    <relatedLists>
-        <fields>NAME</fields>
         <relatedList>Medical_Appointment__c.Doctor__c</relatedList>
     </relatedLists>
     <relatedLists>
