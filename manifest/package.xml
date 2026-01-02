@@ -41,7 +41,8 @@
         <members>Prescription__c-Prescription Layout</members>
         <members>Person__c-Person Layout</members>
         <members>Medical_Appointment__c-Medical Appointment Layout</members>
-        <members>Medical_Facility__c-Medical Appointment Layout</members>
+        <members>Medical_Facility__c-Medical Facility Layout</members>
+        <members>*</members>
         <name>Layout</name>
     </types>
     <types>
