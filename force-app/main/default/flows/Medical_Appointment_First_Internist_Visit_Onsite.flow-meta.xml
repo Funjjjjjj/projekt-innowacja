@@ -47,7 +47,7 @@
                 </rightValue>
             </conditions>
             <connector>
-                <targetReference>First_vistit_error</targetReference>
+                <targetReference>First_visit_error</targetReference>
             </connector>
             <label>No other visits</label>
         </rules>
