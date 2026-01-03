@@ -704,6 +704,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Person__c.Personal_ID_Number__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Prescription__c.Dosage__c</field>
         <readable>true</readable>
     </fieldPermissions>
