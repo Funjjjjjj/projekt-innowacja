@@ -23,7 +23,7 @@
         <inputParameters>
             <name>emailTemplateId</name>
             <value>
-                <stringValue>00XUD000008vswj2AA</stringValue>
+                <stringValue>00XUD000008vtkj2AA</stringValue>
             </value>
         </inputParameters>
         <inputParameters>
@@ -32,6 +32,9 @@
                 <elementReference>Get_Patient.Id</elementReference>
             </value>
         </inputParameters>
+        <nameSegment>emailSimple</nameSegment>
+        <offset>0</offset>
+        <versionString>2.0.1</versionString>
     </actionCalls>
     <apiVersion>65.0</apiVersion>
     <decisions>
@@ -67,7 +70,7 @@
             <conditionLogic>and</conditionLogic>
             <conditions>
                 <leftValueReference>Get_Patient.Email__c</leftValueReference>
-                <operator>IsNull</operator>
+                <operator>EqualTo</operator>
                 <rightValue>
                     <booleanValue>false</booleanValue>
                 </rightValue>
