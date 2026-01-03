@@ -8,5 +8,5 @@
   "name": "projekt-innowacja",
   "namespace": "",
   "sfdcLoginUrl": "https://test.salesforce.com",
-  "sourceApiVersion": "56.0"
+  "sourceApiVersion": "62.0"
 }
