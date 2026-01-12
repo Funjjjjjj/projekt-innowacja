@@ -1035,6 +1035,9 @@
         <layout>Medical_Appointment__c-Medical Appointment Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
+        <layout>Medical_Facility__c-Medical Facility Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
         <layout>Opportunity-Opportunity Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
