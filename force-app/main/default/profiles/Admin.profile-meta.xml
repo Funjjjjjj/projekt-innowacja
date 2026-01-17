@@ -454,11 +454,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Medical_Appointment__c.Doctor__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
         <field>Medical_Appointment__c.End_Time__c</field>
         <readable>true</readable>
     </fieldPermissions>
