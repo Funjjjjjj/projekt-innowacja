@@ -3,10 +3,9 @@
     <fullName>Check_Patient_Insurance</fullName>
     <active>true</active>
     <errorConditionFormula>AND(
-    Medical_Facility__r.Insurance_Required__c = True,
-    ISBLANK(Patient__r.Insurance_Number__c),
-    Patient__r.RecordType.DeveloperName = &quot;Patient&quot;
+Medical_Facility__r.Insurance_Required__c = True,
+ISBLANK(Patient__r.Medical_Insurence__c),
+Patient__r.RecordType.DeveloperName = &quot;Patient&quot;
 )</errorConditionFormula>
-    <errorDisplayField>Patient__c</errorDisplayField>
     <errorMessage>This medical facility require insurance. Patient doesn&apos;t have insurance number on profile.</errorMessage>
 </ValidationRule>

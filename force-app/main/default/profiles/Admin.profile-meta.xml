@@ -638,8 +638,8 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <field>Person__c.Medical_Insurence__c</field>
         <editable>true</editable>
-        <field>Person__c.Insurance_Number__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
