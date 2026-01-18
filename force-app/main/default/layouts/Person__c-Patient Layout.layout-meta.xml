@@ -24,12 +24,12 @@
                 <behavior>Edit</behavior>
                 <field>Phone__c</field>
             </layoutItems>
-        </layoutColumns>
-        <layoutColumns>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Insurance_Number__c</field>
+                <field>Medical_Insurence__c</field>
             </layoutItems>
+        </layoutColumns>
+        <layoutColumns>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>OwnerId</field>
