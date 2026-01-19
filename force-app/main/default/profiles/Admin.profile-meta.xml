@@ -53,6 +53,7 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>true</editable>
         <field>Medical_Insurence__c.Status__c</field>
         <readable>true</readable>
     </fieldPermissions>
