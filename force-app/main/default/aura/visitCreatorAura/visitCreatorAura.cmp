@@ -1,0 +1,10 @@
+<aura:component implements="lightning:actionOverride,force:hasRecordId,force:hasSObjectName">
+    <c:visitCreator />
+    
+    <aura:html tag="style">
+        .slds-modal__container {
+            max-width: 70rem !important;
+            width: 80% !important;
+        }
+    </aura:html>
+</aura:component>
