@@ -12,7 +12,7 @@
                     <div class="slds-col slds-size_1-of-2 slds-p-horizontal_small">
                         <lightning-combobox
                             name="recordType"
-                            label="Typ Wizyty (Record Type)"
+                            label="Visit type"
                             value={selectedRecordTypeId}
                             options={recordTypeOptions}
                             onchange={handleRecordTypeChange}
@@ -36,7 +36,7 @@
 
                         <lightning-combobox
                             name="specialization"
-                            label="Specjalizacja"
+                            label="specialization"
                             value={specialization}
                             options={specializationOptions}
                             onchange={handleSpecChange}
@@ -45,7 +45,7 @@
 
                         <lightning-combobox
                             name="doctor"
-                            label="Lekarz"
+                            label="doctor"
                             value={selectedDoctorId}
                             options={doctorOptions}
                             onchange={handleDoctorChange}
@@ -66,7 +66,7 @@
                 </div>
 
                 <div class="slds-m-top_medium slds-align_absolute-center">
-                    <lightning-button label="Anuluj" onclick={handleCancel} class="slds-m-right_small"></lightning-button>
+                    <lightning-button label="cancel" onclick={handleCancel} class="slds-m-right_small"></lightning-button>
                     <lightning-button type="submit" variant="brand" label="Zapisz"></lightning-button>
                 </div>
 
