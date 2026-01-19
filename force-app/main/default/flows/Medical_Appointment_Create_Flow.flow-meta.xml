@@ -106,12 +106,6 @@
             </value>
         </inputAssignments>
         <inputAssignments>
-            <field>Format__c</field>
-            <value>
-                <elementReference>Choose_visit_typee</elementReference>
-            </value>
-        </inputAssignments>
-        <inputAssignments>
             <field>Medical_Facility__c</field>
             <value>
                 <elementReference>FacilitySelection.selectedChoiceValues</elementReference>
@@ -139,6 +133,12 @@
             <field>Status__c</field>
             <value>
                 <elementReference>Choose_visit_status</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Visit_Type__c</field>
+            <value>
+                <elementReference>Choose_visit_typee</elementReference>
             </value>
         </inputAssignments>
         <object>Medical_Appointment__c</object>
