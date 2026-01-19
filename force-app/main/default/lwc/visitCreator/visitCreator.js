@@ -16,7 +16,6 @@ export default class VisitCreator extends NavigationMixin(LightningElement) {
     objectInfo({ error, data }) {
         if (data) {
             const rtInfos = data.recordTypeInfos;
-            // Filtrujemy, aby nie pokazywać technicznego typu "Master"
             this.recordTypeOptions = Object.keys(rtInfos)
                 .filter(id => rtInfos[id].name !== 'Master' && rtInfos[id].available)
                 .map(id => ({ label: rtInfos[id].name, value: id }));
@@ -29,7 +28,7 @@ export default class VisitCreator extends NavigationMixin(LightningElement) {
         }
     }
 
-    // Te opcje muszą odpowiadać wartościom specjalizacji u Twoich lekarzy
+
     get specializationOptions() {
         return [
             { label: 'Internista', value: 'Internist' },
@@ -57,7 +56,7 @@ export default class VisitCreator extends NavigationMixin(LightningElement) {
     }
 
     fetchDoctors() {
-        // Logika uruchomi się tylko gdy oba pola są wybrane
+
         if (this.facilityId && this.specialization) {
             getAvailableDoctors({ facilityId: this.facilityId, specialization: this.specialization })
                 .then(result => {
@@ -82,9 +81,9 @@ export default class VisitCreator extends NavigationMixin(LightningElement) {
         event.preventDefault(); 
         const fields = event.detail.fields; 
         
-        // PRZYPISANIE WYBRANEGO LEKARZA I TYPU REKORDU
+
         fields.Doctor__c = this.selectedDoctorId; 
-        fields.RecordTypeId = this.selectedRecordTypeId; // DODAJ TĘ LINIĘ
+        fields.RecordTypeId = this.selectedRecordTypeId; 
         
         this.template.querySelector('lightning-record-edit-form').submit(fields);
     }
