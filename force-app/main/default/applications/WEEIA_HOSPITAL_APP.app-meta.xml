@@ -10,7 +10,10 @@
     <isNavTabPersistenceDisabled>false</isNavTabPersistenceDisabled>
     <label>WEEIA HOSPITAL APP</label>
     <navType>Standard</navType>
-    <tabs>standard-Account</tabs>
     <tabs>Medical_Insurence__c</tabs>
+    <tabs>Medical_Appointment__c</tabs>
+    <tabs>Medical_Facility__c</tabs>
+    <tabs>Person__c</tabs>
+    <tabs>Prescription__c</tabs>
     <uiType>Lightning</uiType>
 </CustomApplication>
