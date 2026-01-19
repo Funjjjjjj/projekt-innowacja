@@ -8,9 +8,14 @@
     <isNavAutoTempTabsDisabled>false</isNavAutoTempTabsDisabled>
     <isNavPersonalizationDisabled>false</isNavPersonalizationDisabled>
     <isNavTabPersistenceDisabled>false</isNavTabPersistenceDisabled>
+    <isOmniPinnedViewEnabled>false</isOmniPinnedViewEnabled>
     <label>WEEIA HOSPITAL APP</label>
     <navType>Standard</navType>
     <tabs>standard-Account</tabs>
     <tabs>Medical_Insurence__c</tabs>
+    <tabs>Doctor_Facility_Assignment__c</tabs>
+    <tabs>Medical_Facility__c</tabs>
+    <tabs>Medical_Appointment__c</tabs>
     <uiType>Lightning</uiType>
+    <utilityBar>WEEIA_HOSPITAL_APP_UtilityBar</utilityBar>
 </CustomApplication>
