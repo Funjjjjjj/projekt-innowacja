@@ -2195,4 +2195,8 @@
         <enabled>true</enabled>
         <name>WorkCalibrationUser</name>
     </userPermissions>
+    <tabVisibilities>
+        <tab>Doctor_Facility_Assignment__c</tab>
+        <visibility>DefaultOn</visibility>
+    </tabVisibilities>
 </Profile>
