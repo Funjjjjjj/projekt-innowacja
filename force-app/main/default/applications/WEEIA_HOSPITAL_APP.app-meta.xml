@@ -12,9 +12,11 @@
     <label>WEEIA HOSPITAL APP</label>
     <navType>Standard</navType>
     <tabs>Medical_Insurence__c</tabs>
-    <tabs>Doctor_Facility_Assignment__c</tabs>
-    <tabs>Medical_Facility__c</tabs>
     <tabs>Medical_Appointment__c</tabs>
+    <tabs>Medical_Facility__c</tabs>
+    <tabs>Person__c</tabs>
+    <tabs>Prescription__c</tabs>
+    <tabs>Doctor_Facility_Assignment__c</tabs>
     <uiType>Lightning</uiType>
     <utilityBar>WEEIA_HOSPITAL_APP_UtilityBar</utilityBar>
 </CustomApplication>
