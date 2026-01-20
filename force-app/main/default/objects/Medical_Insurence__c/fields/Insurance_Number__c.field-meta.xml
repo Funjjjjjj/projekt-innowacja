@@ -5,7 +5,7 @@
     <externalId>false</externalId>
     <label>Insurance Number</label>
     <length>20</length>
-    <required>true</required>
+    <required>false</required>
     <trackTrending>false</trackTrending>
     <type>Text</type>
     <unique>true</unique>
