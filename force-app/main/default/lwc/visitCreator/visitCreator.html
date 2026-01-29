@@ -1,9 +1,9 @@
 <template>
-    <lightning-card title="Nowa Wizyta" icon-name="standard:event">
+    <lightning-card title="New visit" icon-name="standard:event">
         <div class="slds-p-around_medium slds-is-relative">
             
             <template if:true={isLoading}>
-                <lightning-spinner alternative-text="Ładowanie..." size="medium"></lightning-spinner>
+                <lightning-spinner alternative-text="Loading..." size="medium"></lightning-spinner>
             </template>
 
             <lightning-record-edit-form 
@@ -17,7 +17,7 @@
                         
                         <lightning-combobox
                             name="recordType"
-                            label="Rodzaj wizyty (Record Type)"
+                            label="Visit Form (Record Type)"
                             value={selectedRecordTypeId}
                             options={recordTypeOptions}
                             onchange={handleRecordTypeChange}
@@ -35,9 +35,9 @@
 
                         <lightning-combobox
                             name="specialization"
-                            label="Specjalizacja"
+                            label="Specialization"
                             value={specialization}
-                            placeholder="Wybierz specjalizację"
+                            placeholder="Choose specialization"
                             options={specializationOptions}
                             onchange={handleSpecChange}
                             required>
@@ -45,9 +45,9 @@
 
                         <lightning-combobox
                             name="doctor"
-                            label="Lekarz"
+                            label="Doctor"
                             value={selectedDoctorId}
-                            placeholder="Wybierz lekarza"
+                            placeholder="Choose doctor"
                             options={doctorOptions}
                             onchange={handleDoctorChange}
                             disabled={isDoctorDisabled}
@@ -68,8 +68,8 @@
                 </div>
 
                 <div class="slds-m-top_medium slds-align_absolute-center">
-                    <lightning-button label="Anuluj" onclick={handleCancel} class="slds-m-right_small"></lightning-button>
-                    <lightning-button type="submit" variant="brand" label="Zapisz wizytę"></lightning-button>
+                    <lightning-button label="Cancel" onclick={handleCancel} class="slds-m-right_small"></lightning-button>
+                    <lightning-button type="submit" variant="brand" label="Save visit"></lightning-button>
                 </div>
 
             </lightning-record-edit-form>

@@ -71,7 +71,7 @@ export default class VisitCreator extends NavigationMixin(LightningElement) {
                     this.selectedDoctorId = this.doctorOptions.length > 0 ? this.doctorOptions[0].value : null;
                 })
                 .catch(error => {
-                    this.showToast('Błąd', 'Nie znaleziono lekarzy dla tej placówki', 'error');
+                    this.showToast('Error', 'There are no doctors for this facility', 'error');
                 })
                 .finally(() => { this.isLoading = false; });
         }
@@ -96,7 +96,7 @@ export default class VisitCreator extends NavigationMixin(LightningElement) {
 
     handleError(event) {
         this.isLoading = false;
-        let message = 'Wystąpił błąd podczas zapisu.';
+        let message = 'Error during saving.';
         if (event.detail && event.detail.detail) {
             message = event.detail.detail;
         } else if (event.detail && event.detail.message) {
@@ -107,7 +107,7 @@ export default class VisitCreator extends NavigationMixin(LightningElement) {
 
     handleSuccess() {
         this.isLoading = false;
-        this.showToast('Sukces', 'Wizyta została utworzona', 'success');
+        this.showToast('Success', 'Visit was created', 'success');
         this.handleCancel();
     }
 
