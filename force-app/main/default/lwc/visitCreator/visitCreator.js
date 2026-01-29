@@ -3,11 +3,9 @@ import { NavigationMixin } from 'lightning/navigation';
 import { ShowToastEvent } from 'lightning/platformShowToastEvent';
 import { getObjectInfo, getPicklistValues } from 'lightning/uiObjectInfoApi';
 
-
 import MEDICAL_APPOINTMENT_OBJECT from '@salesforce/schema/Medical_Appointment__c';
 import PERSON_OBJECT from '@salesforce/schema/Person__c';
 import SPECIALIZATION_FIELD from '@salesforce/schema/Person__c.Specialization__c';
-
 
 import getAvailableDoctors from '@salesforce/apex/AppointmentController.getAvailableDoctors';
 
@@ -19,13 +17,10 @@ export default class VisitCreator extends NavigationMixin(LightningElement) {
     @track selectedRecordTypeId;
     @track recordTypeOptions = [];
     @track specializationOptions = [];
-    
-    @track isLoading = false; 
-
+    @track isLoading = false;
 
     @wire(getObjectInfo, { objectApiName: PERSON_OBJECT })
     personObjectInfo;
-
 
     @wire(getPicklistValues, { 
         recordTypeId: '$personObjectInfo.data.defaultRecordTypeId', 
@@ -34,11 +29,8 @@ export default class VisitCreator extends NavigationMixin(LightningElement) {
     wiredPicklistValues({ error, data }) {
         if (data) {
             this.specializationOptions = data.values.map(item => ({
-                label: item.label,
-                value: item.value
+                label: item.label, value: item.value
             }));
-        } else if (error) {
-            this.showToast('Błąd', 'Nie udało się pobrać specjalizacji', 'error');
         }
     }
 
@@ -56,6 +48,10 @@ export default class VisitCreator extends NavigationMixin(LightningElement) {
         }
     }
 
+    get isDoctorDisabled() {
+        return !this.facilityId || !this.specialization;
+    }
+
     handleFacilityChange(event) {
         this.facilityId = event.target.value;
         this.fetchDoctors();
@@ -68,19 +64,16 @@ export default class VisitCreator extends NavigationMixin(LightningElement) {
 
     fetchDoctors() {
         if (this.facilityId && this.specialization) {
-            this.isLoading = true; 
+            this.isLoading = true;
             getAvailableDoctors({ facilityId: this.facilityId, specialization: this.specialization })
                 .then(result => {
                     this.doctorOptions = result.map(doc => ({ label: doc.Name, value: doc.Id }));
                     this.selectedDoctorId = this.doctorOptions.length > 0 ? this.doctorOptions[0].value : null;
                 })
                 .catch(error => {
-                    this.showToast('Błąd', 'Błąd podczas wyszukiwania lekarzy', 'error');
-                    console.error(error);
+                    this.showToast('Błąd', 'Nie znaleziono lekarzy dla tej placówki', 'error');
                 })
-                .finally(() => {
-                    this.isLoading = false; 
-                });
+                .finally(() => { this.isLoading = false; });
         }
     }
 
@@ -93,27 +86,35 @@ export default class VisitCreator extends NavigationMixin(LightningElement) {
     }
 
     handleSubmit(event) {
+        this.isLoading = true; 
         event.preventDefault();
         const fields = event.detail.fields;
-        
         fields.Doctor__c = this.selectedDoctorId;
         fields.RecordTypeId = this.selectedRecordTypeId;
-        
         this.template.querySelector('lightning-record-edit-form').submit(fields);
     }
 
+    handleError(event) {
+        this.isLoading = false;
+        let message = 'Wystąpił błąd podczas zapisu.';
+        if (event.detail && event.detail.detail) {
+            message = event.detail.detail;
+        } else if (event.detail && event.detail.message) {
+            message = event.detail.message;
+        }
+        this.showToast('Validation Error', message, 'error');
+    }
+
     handleSuccess() {
-        this.showToast('Sukces', 'Wizyta została utworzona pomyślnie', 'success');
+        this.isLoading = false;
+        this.showToast('Sukces', 'Wizyta została utworzona', 'success');
         this.handleCancel();
     }
 
     handleCancel() {
         this[NavigationMixin.Navigate]({
             type: 'standard__objectPage',
-            attributes: {
-                objectApiName: 'Medical_Appointment__c',
-                actionName: 'list'
-            },
+            attributes: { objectApiName: 'Medical_Appointment__c', actionName: 'list' },
             state: { filterName: 'Recent' }
         });
     }
