@@ -1,8 +1,12 @@
 import { LightningElement, track, wire } from 'lwc';
 import { NavigationMixin } from 'lightning/navigation';
 import { ShowToastEvent } from 'lightning/platformShowToastEvent';
-import { getObjectInfo } from 'lightning/uiObjectInfoApi';
-import MEDICAL_APPOINTMENT_OBJECT from '@salesforce/schema/Medical_Appointment__c'; 
+import { getObjectInfo, getPicklistValues } from 'lightning/uiObjectInfoApi';
+
+import MEDICAL_APPOINTMENT_OBJECT from '@salesforce/schema/Medical_Appointment__c';
+import PERSON_OBJECT from '@salesforce/schema/Person__c';
+import SPECIALIZATION_FIELD from '@salesforce/schema/Person__c.Specialization__c';
+
 import getAvailableDoctors from '@salesforce/apex/AppointmentController.getAvailableDoctors';
 
 export default class VisitCreator extends NavigationMixin(LightningElement) {
@@ -12,8 +16,26 @@ export default class VisitCreator extends NavigationMixin(LightningElement) {
     @track selectedDoctorId;
     @track selectedRecordTypeId;
     @track recordTypeOptions = [];
+    @track specializationOptions = [];
+    @track isLoading = false;
+
+    @wire(getObjectInfo, { objectApiName: PERSON_OBJECT })
+    personObjectInfo;
+
+    @wire(getPicklistValues, { 
+        recordTypeId: '$personObjectInfo.data.defaultRecordTypeId', 
+        fieldApiName: SPECIALIZATION_FIELD 
+    })
+    wiredPicklistValues({ error, data }) {
+        if (data) {
+            this.specializationOptions = data.values.map(item => ({
+                label: item.label, value: item.value
+            }));
+        }
+    }
+
     @wire(getObjectInfo, { objectApiName: MEDICAL_APPOINTMENT_OBJECT })
-    objectInfo({ error, data }) {
+    appointmentObjectInfo({ error, data }) {
         if (data) {
             const rtInfos = data.recordTypeInfos;
             this.recordTypeOptions = Object.keys(rtInfos)
@@ -23,26 +45,11 @@ export default class VisitCreator extends NavigationMixin(LightningElement) {
             if (this.recordTypeOptions.length > 0) {
                 this.selectedRecordTypeId = this.recordTypeOptions[0].value;
             }
-        } else if (error) {
-            console.error('Błąd Record Types:', error);
         }
-    }
-
-
-    get specializationOptions() {
-        return [
-            { label: 'Internista', value: 'Internist' },
-            { label: 'Kardiolog', value: 'Cardiologist' },
-            { label: 'Alergolog', value: 'Allergist' },
-            { label: 'Laryngolog', value: 'Laryngologist' }
-        ];
     }
 
     get isDoctorDisabled() {
         return !this.facilityId || !this.specialization;
-    }
-    handleRecordTypeChange(event) {
-        this.selectedRecordTypeId = event.detail.value;
     }
 
     handleFacilityChange(event) {
@@ -56,20 +63,17 @@ export default class VisitCreator extends NavigationMixin(LightningElement) {
     }
 
     fetchDoctors() {
-
         if (this.facilityId && this.specialization) {
+            this.isLoading = true;
             getAvailableDoctors({ facilityId: this.facilityId, specialization: this.specialization })
                 .then(result => {
                     this.doctorOptions = result.map(doc => ({ label: doc.Name, value: doc.Id }));
-                    if (this.doctorOptions.length > 0) {
-                        this.selectedDoctorId = this.doctorOptions[0].value;
-                    } else {
-                        this.selectedDoctorId = null;
-                    }
+                    this.selectedDoctorId = this.doctorOptions.length > 0 ? this.doctorOptions[0].value : null;
                 })
                 .catch(error => {
-                    console.error('Błąd pobierania lekarzy:', error);
-                });
+                    this.showToast('Error', 'There are no doctors for this facility', 'error');
+                })
+                .finally(() => { this.isLoading = false; });
         }
     }
 
@@ -77,34 +81,45 @@ export default class VisitCreator extends NavigationMixin(LightningElement) {
         this.selectedDoctorId = event.detail.value;
     }
 
-    handleSubmit(event) {
-        event.preventDefault(); 
-        const fields = event.detail.fields; 
-        
+    handleRecordTypeChange(event) {
+        this.selectedRecordTypeId = event.detail.value;
+    }
 
-        fields.Doctor__c = this.selectedDoctorId; 
-        fields.RecordTypeId = this.selectedRecordTypeId; 
-        
+    handleSubmit(event) {
+        this.isLoading = true; 
+        event.preventDefault();
+        const fields = event.detail.fields;
+        fields.Doctor__c = this.selectedDoctorId;
+        fields.RecordTypeId = this.selectedRecordTypeId;
         this.template.querySelector('lightning-record-edit-form').submit(fields);
     }
 
+    handleError(event) {
+        this.isLoading = false;
+        let message = 'Error during saving.';
+        if (event.detail && event.detail.detail) {
+            message = event.detail.detail;
+        } else if (event.detail && event.detail.message) {
+            message = event.detail.message;
+        }
+        this.showToast('Validation Error', message, 'error');
+    }
+
     handleSuccess() {
-        this.dispatchEvent(new ShowToastEvent({
-            title: 'Sukces',
-            message: 'Wizyta została utworzona pomyślnie',
-            variant: 'success'
-        }));
+        this.isLoading = false;
+        this.showToast('Success', 'Visit was created', 'success');
         this.handleCancel();
     }
 
     handleCancel() {
         this[NavigationMixin.Navigate]({
             type: 'standard__objectPage',
-            attributes: {
-                objectApiName: 'Medical_Appointment__c',
-                actionName: 'list'
-            },
+            attributes: { objectApiName: 'Medical_Appointment__c', actionName: 'list' },
             state: { filterName: 'Recent' }
         });
+    }
+
+    showToast(title, message, variant) {
+        this.dispatchEvent(new ShowToastEvent({ title, message, variant }));
     }
 }
