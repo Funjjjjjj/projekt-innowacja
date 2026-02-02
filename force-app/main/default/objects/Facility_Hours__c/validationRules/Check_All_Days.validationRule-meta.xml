@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Check_All_Days</fullName>
+    <active>true</active>
+    <errorConditionFormula>OR(
+    AND(NOT(ISBLANK(Monday_Open__c)), ISBLANK(Monday_Close__c)),
+    AND(ISBLANK(Monday_Open__c), NOT(ISBLANK(Monday_Close__c))),
+    AND(NOT(ISBLANK(Monday_Open__c)), NOT(ISBLANK(Monday_Close__c)), Monday_Open__c &gt;= Monday_Close__c),
+
+    AND(NOT(ISBLANK(Tuesday_Open__c)), ISBLANK(Tuesday_Close__c)),
+    AND(ISBLANK(Tuesday_Open__c), NOT(ISBLANK(Tuesday_Close__c))),
+    AND(NOT(ISBLANK(Tuesday_Open__c)), NOT(ISBLANK(Tuesday_Close__c)), Tuesday_Open__c &gt;= Tuesday_Close__c),
+
+    AND(NOT(ISBLANK(Wednesday_Open__c)), ISBLANK(Wednesday_Close__c)),
+    AND(ISBLANK(Wednesday_Open__c), NOT(ISBLANK(Wednesday_Close__c))),
+    AND(NOT(ISBLANK(Wednesday_Open__c)), NOT(ISBLANK(Wednesday_Close__c)), Wednesday_Open__c &gt;= Wednesday_Close__c),
+
+    AND(NOT(ISBLANK(Thursday_Open__c)), ISBLANK(Thursday_Close__c)),
+    AND(ISBLANK(Thursday_Open__c), NOT(ISBLANK(Thursday_Close__c))),
+    AND(NOT(ISBLANK(Thursday_Open__c)), NOT(ISBLANK(Thursday_Close__c)), Thursday_Open__c &gt;= Thursday_Close__c),
+
+    AND(NOT(ISBLANK(Friday_Open__c)), ISBLANK(Friday_Close__c)),
+    AND(ISBLANK(Friday_Open__c), NOT(ISBLANK(Friday_Close__c))),
+    AND(NOT(ISBLANK(Friday_Open__c)), NOT(ISBLANK(Friday_Close__c)), Friday_Open__c &gt;= Friday_Close__c),
+
+    AND(NOT(ISBLANK(Saturday_Open__c)), ISBLANK(Saturday_Close__c)),
+    AND(ISBLANK(Saturday_Open__c), NOT(ISBLANK(Saturday_Close__c))),
+    AND(NOT(ISBLANK(Saturday_Open__c)), NOT(ISBLANK(Saturday_Close__c)), Saturday_Open__c &gt;= Saturday_Close__c),
+
+    AND(NOT(ISBLANK(Sunday_Open__c)), ISBLANK(Sunday_Close__c)),
+    AND(ISBLANK(Sunday_Open__c), NOT(ISBLANK(Sunday_Close__c))),
+    AND(NOT(ISBLANK(Sunday_Open__c)), NOT(ISBLANK(Sunday_Close__c)), Sunday_Open__c &gt;= Sunday_Close__c)
+)</errorConditionFormula>
+    <errorMessage>Error in hours! Make sure each day has BOTH opening and closing times listed or is completely blank. The opening time must be earlier than the closing time.</errorMessage>
+</ValidationRule>
