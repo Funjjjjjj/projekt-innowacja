@@ -1,86 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Flow xmlns="http://soap.sforce.com/2006/04/metadata">
     <actionCalls>
-        <name>Send_Visit_Email</name>
-        <label>Send Visit Email</label>
+        <name>Send_Patient_Notification</name>
+        <label>Send Patient Notification</label>
         <locationX>0</locationX>
         <locationY>0</locationY>
-        <actionName>emailSimple</actionName>
-        <actionType>emailSimple</actionType>
+        <actionName>Medical_Appointment__c.Patient_visit_alert</actionName>
+        <actionType>emailAlert</actionType>
         <flowTransactionModel>CurrentTransaction</flowTransactionModel>
         <inputParameters>
-            <name>senderType</name>
+            <name>SObjectRowId</name>
             <value>
-                <stringValue>CurrentUser</stringValue>
+                <elementReference>$Record.Id</elementReference>
             </value>
         </inputParameters>
-        <inputParameters>
-            <name>useEmailTemplate</name>
-            <value>
-                <stringValue>True</stringValue>
-            </value>
-        </inputParameters>
-        <inputParameters>
-            <name>emailTemplateId</name>
-            <value>
-                <stringValue>00XUD000008vtkj2AA</stringValue>
-            </value>
-        </inputParameters>
-        <inputParameters>
-            <name>recipientId</name>
-            <value>
-                <elementReference>Get_Patient.Id</elementReference>
-            </value>
-        </inputParameters>
-        <nameSegment>emailSimple</nameSegment>
+        <nameSegment>Medical_Appointment__c.Patient_visit_alert</nameSegment>
         <offset>0</offset>
-        <versionString>2.0.1</versionString>
     </actionCalls>
     <apiVersion>65.0</apiVersion>
-    <decisions>
-        <name>Has_Patient</name>
-        <label>Has Patient</label>
-        <locationX>0</locationX>
-        <locationY>0</locationY>
-        <defaultConnectorLabel>No</defaultConnectorLabel>
-        <rules>
-            <name>Yes</name>
-            <conditionLogic>and</conditionLogic>
-            <conditions>
-                <leftValueReference>$Record.Patient__c</leftValueReference>
-                <operator>IsNull</operator>
-                <rightValue>
-                    <booleanValue>false</booleanValue>
-                </rightValue>
-            </conditions>
-            <connector>
-                <targetReference>Get_Patient</targetReference>
-            </connector>
-            <label>Yes</label>
-        </rules>
-    </decisions>
-    <decisions>
-        <name>Should_Send_Email</name>
-        <label>Should Send Email</label>
-        <locationX>0</locationX>
-        <locationY>0</locationY>
-        <defaultConnectorLabel>Email is NULL</defaultConnectorLabel>
-        <rules>
-            <name>Email_is_not_NULL</name>
-            <conditionLogic>and</conditionLogic>
-            <conditions>
-                <leftValueReference>Get_Patient.Email__c</leftValueReference>
-                <operator>EqualTo</operator>
-                <rightValue>
-                    <booleanValue>false</booleanValue>
-                </rightValue>
-            </conditions>
-            <connector>
-                <targetReference>Send_Visit_Email</targetReference>
-            </connector>
-            <label>Email is not NULL</label>
-        </rules>
-    </decisions>
     <environments>Default</environments>
     <interviewLabel>Medical Appointment send email {!$Flow.CurrentDateTime}</interviewLabel>
     <label>Medical Appointment send email</label>
@@ -103,32 +40,27 @@
         </value>
     </processMetadataValues>
     <processType>AutoLaunchedFlow</processType>
-    <recordLookups>
-        <name>Get_Patient</name>
-        <label>Get Patient</label>
+    <recordUpdates>
+        <name>Update_Patient_Email_Mirror</name>
+        <label>Update Patient Email Mirror</label>
         <locationX>0</locationX>
         <locationY>0</locationY>
-        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
-            <targetReference>Should_Send_Email</targetReference>
+            <targetReference>Send_Patient_Notification</targetReference>
         </connector>
-        <filterLogic>and</filterLogic>
-        <filters>
-            <field>Id</field>
-            <operator>EqualTo</operator>
+        <inputAssignments>
+            <field>Patient_Email_Mirror__c</field>
             <value>
-                <elementReference>$Record.Patient__c</elementReference>
+                <elementReference>$Record.Patient__r.Email__c</elementReference>
             </value>
-        </filters>
-        <getFirstRecordOnly>true</getFirstRecordOnly>
-        <object>Person__c</object>
-        <storeOutputAutomatically>true</storeOutputAutomatically>
-    </recordLookups>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
     <start>
         <locationX>0</locationX>
         <locationY>0</locationY>
         <connector>
-            <targetReference>Has_Patient</targetReference>
+            <targetReference>Update_Patient_Email_Mirror</targetReference>
         </connector>
         <object>Medical_Appointment__c</object>
         <recordTriggerType>CreateAndUpdate</recordTriggerType>
