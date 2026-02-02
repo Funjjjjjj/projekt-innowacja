@@ -31,10 +31,6 @@
                 <behavior>Edit</behavior>
                 <field>Personal_ID_Number__c</field>
             </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Medical_Insurence__c</field>
-            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>

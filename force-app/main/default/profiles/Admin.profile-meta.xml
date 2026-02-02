@@ -502,6 +502,11 @@
         <field>Medical_Appointment__c.Start_Time__c</field>
         <readable>true</readable>
     </fieldPermissions>
+        <fieldPermissions>
+        <editable>true</editable>
+        <field>Medical_Appointment__c.Patient_Email_Mirror__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Medical_Appointment__c.Status__c</field>
