@@ -1,0 +1,27 @@
+<template>
+    <lightning-card title="Opening Hours" icon-name="utility:clock">
+        <div class="slds-var-p-around_medium">
+            <template if:true={businessHours.length}>
+                <table class="slds-table slds-table_bordered slds-table_fixed-layout">
+                    <thead>
+                        <tr class="slds-line-height_reset">
+                            <th scope="col" style="width: 120px;">Day</th>
+                            <th scope="col">Hours</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <template for:each={businessHours} for:item="day">
+                            <tr key={day.label}>
+                                <td><b>{day.label}</b></td>
+                                <td>{day.value}</td>
+                            </tr>
+                        </template>
+                    </tbody>
+                </table>
+            </template>
+            <template if:false={businessHours.length}>
+                <p>No operating hours assigned to this facility.</p>
+            </template>
+        </div>
+    </lightning-card>
+</template>
