@@ -15,7 +15,7 @@ global with sharing class MedicalFacilityRestResource {
             Insurance_Required__c = Math.random() > 0.5, 
             Phone__c = '+1-' + randomPhone,
             Type__c = types[typeIndex],
-            Website__c = 'https://www.med-facility-' + randomPhone + '.com',
+            Website__c = 'https://www.med-facility-' + randomPhone + '.com'
         );
 
         randomFacility.put('Facility_Address__Street__s', '123 Medical Way');
