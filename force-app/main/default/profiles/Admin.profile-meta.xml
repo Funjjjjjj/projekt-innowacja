@@ -2266,4 +2266,8 @@
         <tab>Doctor_Facility_Assignment__c</tab>
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
+    <tabVisibilities>
+        <tab>Facility_Hours__c</tab>
+        <visibility>DefaultOn</visibility>
+    </tabVisibilities>
 </Profile>
