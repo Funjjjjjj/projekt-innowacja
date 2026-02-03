@@ -605,7 +605,7 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Facility_Hours__c.Tuesday_Open__c</field>
-        <readable>true</readable>
+        <readable>true</readable> 
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
