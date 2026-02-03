@@ -3,7 +3,6 @@ global with sharing class MedicalFacilityRestResource {
 
     @HttpPost
     global static Medical_Facility__c getRandomMedicalFacility() {
-        BusinessHours bh = [SELECT Id FROM BusinessHours WHERE IsDefault = true LIMIT 1];
         List<String> types = new List<String>{'Hospital', 'Clinic'};
         
         
@@ -17,7 +16,6 @@ global with sharing class MedicalFacilityRestResource {
             Phone__c = '+1-' + randomPhone,
             Type__c = types[typeIndex],
             Website__c = 'https://www.med-facility-' + randomPhone + '.com',
-            Opening_Hours__c = bh.id
         );
 
         randomFacility.put('Facility_Address__Street__s', '123 Medical Way');
