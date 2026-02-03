@@ -17,6 +17,7 @@
     <tabs>Person__c</tabs>
     <tabs>Prescription__c</tabs>
     <tabs>Doctor_Facility_Assignment__c</tabs>
+    <tabs>Facility_Hours__c</tabs>
     <uiType>Lightning</uiType>
     <utilityBar>WEEIA_HOSPITAL_APP_UtilityBar</utilityBar>
 </CustomApplication>
