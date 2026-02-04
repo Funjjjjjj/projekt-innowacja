@@ -1,0 +1,20 @@
+<template>
+    <lightning-card title="Facility Address" icon-name="standard:address">
+        <div class="slds-m-around_medium">
+            <template if:true={mapMarkers.length}>
+                <lightning-map 
+                    map-markers={mapMarkers} 
+                    zoom-level="15">
+                </lightning-map>
+            </template>
+            <template if:true={error}>
+                <p class="slds-text-color_error">Error with loading data.</p>
+            </template>
+            <template if:false={mapMarkers.length}>
+                <template if:false={error}>
+                    <p>Facility doesn't have address.</p>
+                </template>
+            </template>
+        </div>
+    </lightning-card>
+</template>
