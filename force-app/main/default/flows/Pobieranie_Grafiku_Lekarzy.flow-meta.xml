@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Flow xmlns="http://soap.sforce.com/2006/04/metadata">
     <actionCalls>
-        <name>Medical_Facility_Sync</name>
-        <label>Medical_Facility_Sync</label>
+        <name>Doctor_Schedule_Sync</name>
+        <label>Doctor_Schedule_Sync</label>
         <locationX>0</locationX>
         <locationY>0</locationY>
-        <actionName>MedicalFacilityFlowAction</actionName>
+        <actionName>DoctorScheduleFlowAction</actionName>
         <actionType>apex</actionType>
         <flowTransactionModel>Automatic</flowTransactionModel>
-        <nameSegment>MedicalFacilityFlowAction</nameSegment>
+        <nameSegment>DoctorScheduleFlowAction</nameSegment>
         <offset>0</offset>
     </actionCalls>
     <apiVersion>66.0</apiVersion>
     <environments>Default</environments>
-    <interviewLabel>Pobieranie informacji {!$Flow.CurrentDateTime}</interviewLabel>
-    <label>Pobieranie informacji</label>
+    <interviewLabel>Pobieranie Grafiku Lekarzy {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Pobieranie Grafiku Lekarzy</label>
     <processMetadataValues>
         <name>BuilderType</name>
         <value>
@@ -38,14 +38,14 @@
         <locationX>0</locationX>
         <locationY>0</locationY>
         <connector>
-            <targetReference>Medical_Facility_Sync</targetReference>
+            <targetReference>Doctor_Schedule_Sync</targetReference>
         </connector>
         <schedule>
             <dayOfMonthToRun>0</dayOfMonthToRun>
             <frequency>Daily</frequency>
             <frequencyNumber>0</frequencyNumber>
             <startDate>2026-02-04</startDate>
-            <startTime>08:38:00.000Z</startTime>
+            <startTime>08:26:00.000Z</startTime>
         </schedule>
         <triggerType>Scheduled</triggerType>
     </start>
