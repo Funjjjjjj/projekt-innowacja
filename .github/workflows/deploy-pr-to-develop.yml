@@ -1,8 +1,7 @@
 name: Salesforce Deploy after Merge
 
 on:
-  pull_request:
-    types: [opened, synchronize]
+  push:
     branches: [ development ]
     paths:
       - 'force-app/**'

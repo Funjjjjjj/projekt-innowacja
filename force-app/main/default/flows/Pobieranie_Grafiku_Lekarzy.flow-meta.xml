@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionCalls>
+        <name>Doctor_Schedule_Sync</name>
+        <label>Doctor_Schedule_Sync</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <actionName>DoctorScheduleFlowAction</actionName>
+        <actionType>apex</actionType>
+        <flowTransactionModel>Automatic</flowTransactionModel>
+        <nameSegment>DoctorScheduleFlowAction</nameSegment>
+        <offset>0</offset>
+    </actionCalls>
+    <apiVersion>66.0</apiVersion>
+    <environments>Default</environments>
+    <interviewLabel>Pobieranie Grafiku Lekarzy {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Pobieranie Grafiku Lekarzy</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <start>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Doctor_Schedule_Sync</targetReference>
+        </connector>
+        <schedule>
+            <dayOfMonthToRun>0</dayOfMonthToRun>
+            <frequency>Daily</frequency>
+            <frequencyNumber>0</frequencyNumber>
+            <startDate>2026-02-04</startDate>
+            <startTime>08:26:00.000Z</startTime>
+        </schedule>
+        <triggerType>Scheduled</triggerType>
+    </start>
+    <status>Active</status>
+</Flow>

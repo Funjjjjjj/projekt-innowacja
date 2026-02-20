@@ -7,7 +7,29 @@
         <members>Lead</members>
         <members>Product2</members>
         <members>Order</members>
+        <members>Prescription__c</members>
+        <members>Person__c</members>
+        <members>Medical_Appointment__c</members>
+        <members>Medical_Facility__c</members>
         <name>CustomObject</name>
+    </types>
+    <types>
+        <members>Account.*</members>
+        <members>Case.*</members>
+        <members>Contact.*</members>
+        <members>Lead.*</members>
+        <members>Order.*</members>
+        <members>Product2.*</members>
+        <members>Prescription__c.*</members>
+        <members>Person__c.*</members>
+        <members>Medical_Appointment__c.*</members>
+        <members>Medical_Facility__c.*</members>
+        <name>CustomField</name>
+    </types>
+    <types>
+        <members>Person__c.Patient</members>
+        <members>Person__c.Doctor</members>
+        <name>RecordType</name>
     </types>
     <types>
         <members>Account-Account Layout</members>
@@ -16,11 +38,16 @@
         <members>Lead-Lead Layout</members>
         <members>Product2-Product Layout</members>
         <members>Order-Order Layout</members>
+        <members>Prescription__c-Prescription Layout</members>
+        <members>Person__c-Person Layout</members>
+        <members>Medical_Appointment__c-Medical Appointment Layout</members>
+        <members>Medical_Facility__c-Medical Facility Layout</members>
+        <members>*</members>
         <name>Layout</name>
     </types>
     <types>
         <members>Admin</members>
         <name>Profile</name>
     </types>
-    <version>56.0</version>
+    <version>58.0</version>
 </Package>
